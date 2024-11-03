@@ -1,9 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>LOGIN</ion-title>
+    <!-- Main navigation links-->
+    <ion-buttons slot="end">
+      <ion-button href="http://localhost:8100/dashboard">Dashboard</ion-button>
+      <!-- <ion-button href="http://localhost:8100/data">Data</ion-button>
+
+       Dropdown for Peta links -->
+      <!-- <ion-button id="dropdownMenuButton" (click)="toggleDropdown()">
+        Peta
+      </ion-button> -->
+
+      <!-- Dropdown for Peta with triangle icon
+      <ion-button (click)="toggleDropdown()">
+        Peta
+        <ion-icon name="chevron-down" slot="end"></ion-icon>
+      </ion-button>
+
+       Dropdown content, shown/hidden based on button click
+      <div *ngIf="dropdownOpen" class="dropdown-content">
+        <ion-item href="http://localhost:8100/maps2">Peta Rute</ion-item>
+        <ion-item href="http://localhost:8100/map-analyst">Peta Analisis</ion-item>
+      </div>
+
+      <ion-button href="http://localhost:8100/login">Login</ion-button>-->
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
 
 <ion-content class="ion-padding">
 
+  <div style="text-align: center; padding: 20px;">
+    <img src="assets/icon/c-maps-high-resolution-logo.jpeg" alt="Logo" style="max-width: 150px;">
+  </div>
+
   <ion-card>
     <ion-card-header>
-      <ion-card-title style="text-align: center;" >Login</ion-card-title>
+      <ion-card-title style="text-align: center;">Login</ion-card-title>
     </ion-card-header>
     <ion-card-content>
       <ion-list>
@@ -23,7 +56,8 @@
 
   <div style="padding: 20px; text-align: center;">
     <a (click)="forgot()">Forget Password?</a>
-      <br>
-      <p>Don't have an Account? <a (click)="register()">Register Now!</a></p>
+    <br>
+    <p>Don't have an Account? <a (click)="register()"> <strong>Register Now!</strong></a></p>
   </div>
+
 </ion-content>

@@ -1,0 +1,117 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Emisi Sektor Energi DIY</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button href="http://localhost:8100/dashboard">Dashboard</ion-button>
+      <ion-button href="http://localhost:8100/data">Data</ion-button>
+
+      <!-- Dropdown for Peta links
+      <ion-button id="dropdownMenuButton" (click)="toggleDropdown()">
+        Peta
+      </ion-button> -->
+
+      <!-- Dropdown for Peta with triangle icon -->
+      <ion-button (click)="toggleDropdown()">
+        Peta
+        <ion-icon name="chevron-down" slot="end"></ion-icon>
+      </ion-button>
+
+      <!-- Dropdown content, shown/hidden based on button click -->
+      <div *ngIf="dropdownOpen" class="dropdown-content">
+        <ion-item href="http://localhost:8100/maps2">Peta Rute</ion-item>
+        <ion-item href="http://localhost:8100/map-analyst">Peta Analisis</ion-item>
+      </div>
+
+      <ion-button href="http://localhost:8100/login">Login</ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+
+
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>FORGOT PASSWORD</ion-title>
+    Main navigation links -->
+    <!-- <ion-buttons slot="end">
+      <ion-button href="http://localhost:8100/dashboard">Dashboard</ion-button>
+      <ion-button href="http://localhost:8100/data">Data</ion-button> -->
+
+      <!-- Dropdown for Peta links -->
+      <!-- <ion-button id="dropdownMenuButton" (click)="toggleDropdown()">
+        Peta
+      </ion-button> -->
+
+      <!-- Dropdown for Peta with triangle icon -->
+      <!-- <ion-button (click)="toggleDropdown()">
+        Peta
+        <ion-icon name="chevron-down" slot="end"></ion-icon>
+      </ion-button> -->
+
+      <!-- Dropdown content, shown/hidden based on button click -->
+      <!-- <div *ngIf="dropdownOpen" class="dropdown-content">
+        <ion-item href="http://localhost:8100/maps2">Peta Rute</ion-item>
+        <ion-item href="http://localhost:8100/map-analyst">Peta Analisis</ion-item>
+      </div>
+
+      <ion-button href="http://localhost:8100/login">Login</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header> -->
+<ion-content class="ion-padding">
+  <div class="nav-links">
+    <a href="#">Total Emisi</a> ·
+    <a href="#">Sektor Energi</a> ·
+    </div>
+    <!-- <a href="#">Sektor IPPU</a> ·
+    <a href="#">Sektor Pertanian</a> ·
+    <a href="#">Sektor Kehutanan</a> ·
+    <a href="#">Sektor Limbah</a>
+  </div>
+
+  <div class="dropdown-container">
+    <ion-item>
+      <ion-label>Region</ion-label>
+      <ion-select [(ngModel)]="selectedRegion" (ionChange)="updateChart()">
+        <ion-select-option value="DIY">DI Yogyakarta</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Detail</ion-label>
+      <ion-select [(ngModel)]="selectedDetail" (ionChange)="updateChart()">
+        <ion-select-option value="TOP-DOWN">TOP-DOWN</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </div> -->
+
+  <!-- Highcharts Bar Chart -->
+  <highcharts-chart
+    [Highcharts]="Highcharts"
+    [options]="chartOptions"
+    style="width: 100%; height: 400px; display: block;"
+  ></highcharts-chart>
+
+  <!-- Interactive Data Table -->
+<div class="data-table">
+  <table>
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th *ngFor="let year of years">{{ year }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of data; let i = index">
+        <td>
+          <span class="item-number">{{ i + 1 }}.</span>
+          <span class="item-name">{{ row.item }}</span>
+        </td>
+        <td *ngFor="let value of row.values">{{ value | number: '1.0-2' }} Gg</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+</ion-content>

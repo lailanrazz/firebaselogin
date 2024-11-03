@@ -1,4 +1,4 @@
-<ion-header [translucent]="true">
+<!-- <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>map-analyst</ion-title>
   </ion-toolbar>
@@ -10,4 +10,87 @@
       <ion-title size="large">map-analyst</ion-title>
     </ion-toolbar>
   </ion-header>
+</ion-content> -->
+
+<ion-header>
+  <ion-toolbar>
+    <!-- <ion-title>Peta Analisis</ion-title> -->
+    <ion-card-content>
+      <p>Koordinat Y: {{ currentLatitude }}</p>
+      <p>Koordinat X: {{ currentLongitude }}</p>
+    </ion-card-content>
+
+    <ion-buttons slot="end">
+      <ion-button href="http://localhost:8100/dashboard">Dashboard</ion-button>
+      <ion-button href="http://localhost:8100/data">Data</ion-button>
+
+      <!-- Dropdown for Peta links
+      <ion-button id="dropdownMenuButton" (click)="toggleDropdown()">
+        Peta
+      </ion-button> -->
+
+      <!-- Dropdown for Peta with triangle icon -->
+      <ion-button (click)="toggleDropdown()">
+        Peta
+        <ion-icon name="chevron-down" slot="end"></ion-icon>
+      </ion-button>
+
+      <!-- Dropdown content, shown/hidden based on button click -->
+       <div *ngIf="dropdownOpen" class="dropdown-content">
+        <ion-item href="http://localhost:8100/maps2">Peta Rute</ion-item>
+        <ion-item href="http://localhost:8100/map-analyst">Peta Analisis</ion-item>
+      </div>
+
+      <ion-button href="http://localhost:8100/login">Login</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>FORGOT PASSWORD</ion-title>
+    Main navigation links -->
+    <!-- <ion-buttons slot="end">
+      <ion-button href="http://localhost:8100/dashboard">Dashboard</ion-button>
+      <ion-button href="http://localhost:8100/data">Data</ion-button> -->
+
+      <!-- Dropdown for Peta links -->
+      <!-- <ion-button id="dropdownMenuButton" (click)="toggleDropdown()">
+        Peta
+      </ion-button> -->
+
+      <!-- Dropdown for Peta with triangle icon -->
+      <!-- <ion-button (click)="toggleDropdown()">
+        Peta
+        <ion-icon name="chevron-down" slot="end"></ion-icon>
+      </ion-button> -->
+
+      <!-- Dropdown content, shown/hidden based on button click -->
+      <!-- <div *ngIf="dropdownOpen" class="dropdown-content">
+        <ion-item href="http://localhost:8100/maps2">Peta Rute</ion-item>
+        <ion-item href="http://localhost:8100/map-analyst">Peta Analisis</ion-item>
+      </div>
+
+      <ion-button href="http://localhost:8100/login">Login</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header> -->
+
+
+<ion-content>
+  <!-- Tampilkan lokasi pengguna di atas halaman GEE -->
+  <ion-card *ngIf="currentLatitude && currentLongitude">
+    <ion-card-header>
+      <ion-card-title>Lokasi anda sekarang</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Koordinat Lokasi Saat Ini:</p>
+      <p>Latitude: {{ currentLatitude }}</p>
+      <p>Longitude: {{ currentLongitude }}</p>
+    </ion-card-content>
+ </ion-card>
+  <iframe src="https://alert-result-406020.projects.earthengine.app/view/c-maps" width="100%" height="100%" frameborder="0"></iframe>
+
+   <!-- Tombol untuk membuka aplikasi GEE di MapsPage -->
+   <!-- <ion-button routerLink="/maps" expand="block">Open GEE Application</ion-button> -->
 </ion-content>

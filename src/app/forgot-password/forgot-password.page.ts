@@ -10,6 +10,7 @@ import { Auth, sendPasswordResetEmail } from '@angular/fire/auth'; // Import Aut
 })
 export class ForgotPasswordPage implements OnInit {
   email!: string;
+  dropdownOpen= false;
 
   constructor(
     private auth: Auth, // Gunakan Auth dari Firebase
@@ -53,5 +54,8 @@ export class ForgotPasswordPage implements OnInit {
     });
 
     toast.present();
+  }
+  toggleDropdown() {
+    this.dropdownOpen = !this.dropdownOpen;
   }
 }

@@ -15,6 +15,7 @@ export class RegisterPage implements OnInit {
   password!: string;
   confirmPassword!: string;
   passwordMatch!: boolean;
+  dropdownOpen = false;
 
   constructor(
     private auth: Auth,
@@ -40,7 +41,7 @@ export class RegisterPage implements OnInit {
         .then(async (userCredential) => {
           // Referensi dokumen baru di koleksi 'user'
           const userRef = doc(collection(this.firestore, 'user'), userCredential.user.uid);
-          
+
           await setDoc(userRef, {
             userId: userCredential.user.uid,
             name: this.name,
@@ -78,5 +79,9 @@ export class RegisterPage implements OnInit {
     });
 
     toast.present();
+  }
+
+  toggleDropdown() {
+    this.dropdownOpen = !this.dropdownOpen;
   }
 }

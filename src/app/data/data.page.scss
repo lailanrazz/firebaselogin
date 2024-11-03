@@ -1,0 +1,96 @@
+ion-header {
+  --background: #1a2a3a; // Background gelap untuk header
+  color: #ffffff;
+}
+
+.nav-links {
+  text-align: center;
+  margin: 10px 0;
+  color: #388e3c; // Hijau untuk link navigasi
+  font-size: 0.9em;
+
+  a {
+    color: #388e3c;
+    text-decoration: none;
+    margin: 0 5px;
+
+    &:hover {
+      color: #ffffff;
+    }
+  }
+}
+
+.dropdown-container {
+  display: flex;
+  justify-content: center;
+  margin: 15px 0;
+
+  ion-item {
+    max-width: 160px;
+    margin: 0 10px;
+    --background: #e0f2f1; // Latar belakang hijau muda
+    --ion-border-color: #388e3c; // Batas hijau
+  }
+}
+
+.data-table {
+  margin-top: 15px;
+  overflow-x: auto;
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9em;
+    background-color: #e0e0e0; // Warna abu-abu untuk latar tabel
+    color: #333333; // Warna teks abu gelap
+  }
+
+  th {
+    background-color: #388e3c; // Header tabel dengan hijau
+    color: #ffffff;
+    padding: 10px;
+    text-align: center;
+  }
+
+  td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #388e3c; // Batas bawah sel dengan warna hijau
+  }
+
+  .item-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: bold;
+    color: #333333; // Warna abu gelap
+
+    .item-number {
+      font-size: 0.8em;
+    }
+
+    .item-name {
+      font-size: 0.9em;
+    }
+  }
+
+  tbody tr:nth-child(even) {
+    background-color: #f5f5f5; // Warna abu-abu lebih terang untuk baris genap
+  }
+
+  tbody tr:hover {
+    background-color: #ffffff; // Kuning saat di-hover
+    color: #333333;
+  }
+}
+
+@media (max-width: 768px) {
+  .dropdown-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .data-table {
+    font-size: 0.8em;
+  }
+}

@@ -1,9 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>REGISTER</ion-title>
+    <!-- Main navigation links-->
+    <ion-buttons slot="end">
+      <ion-button href="http://localhost:8100/dashboard">Dashboard</ion-button>
+      <!-- <ion-button href="http://localhost:8100/data">Data</ion-button>
+
+       Dropdown for Peta links -->
+      <!-- <ion-button id="dropdownMenuButton" (click)="toggleDropdown()">
+        Peta
+      </ion-button> -->
+
+      <!-- Dropdown for Peta with triangle icon
+      <ion-button (click)="toggleDropdown()">
+        Peta
+        <ion-icon name="chevron-down" slot="end"></ion-icon>
+       </ion-button> -->
+
+      <!-- Dropdown content, shown/hidden based on button click
+      <div *ngIf="dropdownOpen" class="dropdown-content">
+        <ion-item href="http://localhost:8100/maps2">Peta Rute</ion-item>
+        <ion-item href="http://localhost:8100/map-analyst">Peta Analisis</ion-item>
+      </div> -->
+
+      <ion-button href="http://localhost:8100/login">Login</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
 
 <ion-content class="ion-padding">
 
+  <!-- Logo di bagian atas -->
+  <div style="text-align: center; padding: 20px;">
+    <img src="assets/icon/c-maps-high-resolution-logo.jpeg" alt="Logo" style="max-width: 150px;">
+  </div>
+
   <ion-card>
     <ion-card-header>
-      <ion-card-title style="text-align: center;" >Register</ion-card-title>
+      <ion-card-title style="text-align: center;">Register</ion-card-title>
     </ion-card-header>
     <ion-card-content>
       <ion-list>
@@ -25,10 +60,13 @@
           <ion-text *ngIf="password && !passwordMatch" color="danger">Password do not match!</ion-text>
           <ion-text *ngIf="password && passwordMatch" color="success">Password match</ion-text>
         </ion-item>
-
       </ion-list>
     </ion-card-content>
 
-    <ion-button [disabled]="!passwordMatch" expand="block" shape="round" color="primary" (click)="register()">Register</ion-button>
+    <!-- Tombol register dengan warna hijau cerah -->
+    <ion-button [disabled]="!passwordMatch" expand="block" shape="round" (click)="register()">
+      Register
+    </ion-button>
   </ion-card>
+
 </ion-content>

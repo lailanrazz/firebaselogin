@@ -11,6 +11,7 @@ import { LoadingController, ToastController } from '@ionic/angular';
 export class LoginPage implements OnInit {
   email!: string;
   password!: string;
+  dropdownOpen = false;
 
   constructor(
     private router: Router,
@@ -35,13 +36,13 @@ export class LoginPage implements OnInit {
         spinner: 'crescent',
         showBackdrop: true,
       });
-  
+
       await loading.present();
-  
+
       this.auth.login(this.email, this.password).then(() => {
         loading.dismiss();
         // Paksa navigasi ke home
-        this.router.navigate(['/home']);
+        this.router.navigate(['/maps2']);
       }).catch((error) => {
         loading.dismiss();
         this.toast(error.message, 'danger');
@@ -59,5 +60,9 @@ export class LoginPage implements OnInit {
       duration: 2000,
     });
     toast.present();
+  }
+
+  toggleDropdown() {
+    this.dropdownOpen = !this.dropdownOpen;
   }
 }
