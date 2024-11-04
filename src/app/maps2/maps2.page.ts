@@ -12,14 +12,16 @@ import { Router } from '@angular/router';
 declare var L: any;
 export type VehicleType = 'gasoline' | 'diesel' | 'motor';
 
-const customIcon = L.icon({
-  iconUrl: '/assets/icon/favicon.png',
-  shadowUrl: '/assets/icon/favicon.png',
-  iconSize: [25, 41], // ukuran icon
-  iconAnchor: [12, 41], // titik anchor untuk posisi marker
-  popupAnchor: [1, -34], // posisi popup dari icon
-  shadowSize: [41, 41]  // ukuran shadow
+const customIcon = new leaflet.Icon({
+  iconUrl: '../../assets/icon/pin-fix.png',
+  // shadowUrl: '../../assets/icon/marker-icon-2x.png',
+  iconSize: [40, 45],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+  shadowSize: [41, 41]
 });
+
+leaflet.Marker.prototype.options.icon = customIcon;
 
 @Component({
   selector: 'app-maps2',
